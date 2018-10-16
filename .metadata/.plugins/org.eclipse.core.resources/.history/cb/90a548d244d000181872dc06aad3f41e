@@ -1,0 +1,14 @@
+package com.infosys.kafka.model;
+
+import java.util.List;
+
+public class Feed {
+	final String title;
+    final String link;
+    final String description;
+    final String language;
+    final String copyright;
+    final String pubDate;
+    
+    final List<FeedMessage> entries = new ArrayList<FeedMessage>();
+}

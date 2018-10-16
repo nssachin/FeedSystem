@@ -1,0 +1,1 @@
+infosys.info=https://www.infosys.com/index.xml

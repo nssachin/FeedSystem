@@ -1,0 +1,11 @@
+package com.infosys.kafka.model;
+
+import java.util.List;
+
+import lombok.Data;
+
+@Data
+public class Feed {
+   
+    private List<FeedMessage> entries = new ArrayList<FeedMessage>();
+}

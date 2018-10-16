@@ -1,0 +1,71 @@
+package com.infosys.kafka.producer;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.URL;
+import java.util.List;
+
+import org.springframework.batch.item.ItemReader;
+import org.springframework.batch.item.NonTransientResourceException;
+import org.springframework.batch.item.ParseException;
+import org.springframework.batch.item.UnexpectedInputException;
+import org.springframework.stereotype.Component;
+
+import com.infosys.kafka.model.Feed;
+import com.infosys.kafka.model.FeedMessage;
+import com.sun.syndication.feed.synd.SyndEntry;
+import com.sun.syndication.feed.synd.SyndEntryImpl;
+import com.sun.syndication.feed.synd.SyndFeed;
+import com.sun.syndication.io.FeedException;
+import com.sun.syndication.io.SyndFeedInput;
+import com.sun.syndication.io.XmlReader;
+
+@Component
+public class RssFeedReader implements ItemReader<Feed> {
+
+	private boolean batchJobState  = false;
+
+	@Override
+	public Feed read() throws Exception, UnexpectedInputException, ParseException, NonTransientResourceException {
+		if(! batchJobState) {
+			ClassLoader classLoader = getClass().getClassLoader();
+			InputStream fstream = classLoader.getResourceAsStream("feed.txt");
+			Feed rssFeed = new Feed();
+			System.out.println("Inside Read main method");
+			try (BufferedReader br = new BufferedReader(new InputStreamReader(fstream))) {
+				String line;
+				while ((line = br.readLine()) != null) {
+					SyndFeed feed = readFeed(line);
+					List<SyndEntry> entries = feed.getEntries();
+					for (SyndEntry entry : entries) {
+						rssFeed.getEntries().add(createFeedMessage(entry));
+					}
+				}
+			}
+			batchJobState = true;
+			System.out.println("Total Size: " + rssFeed.getEntries().size());
+			return rssFeed;
+		}
+		return null;
+	}
+
+	private static SyndFeed readFeed(String spec) throws IOException, FeedException {
+		System.out.println("Inside read feed");
+		URL feedSource = new URL(spec);
+		SyndFeedInput input = new SyndFeedInput();
+		return input.build(new XmlReader(feedSource));
+	}
+
+	private FeedMessage createFeedMessage(SyndEntry entry) {
+		FeedMessage message = new FeedMessage();
+		message.setAuthor(entry.getAuthor());
+		message.setDescription(entry.getDescription().getValue());
+		message.setLink(entry.getLink());
+		message.setTitle(entry.getTitle());
+		message.setPublishedDate(entry.getPublishedDate());
+		
+		return message;
+	}
+}
