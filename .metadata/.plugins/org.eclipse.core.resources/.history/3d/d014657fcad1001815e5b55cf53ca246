@@ -1,0 +1,5 @@
+package com.infosys.kafka.consumer;
+
+public class Receiver {
+
+}

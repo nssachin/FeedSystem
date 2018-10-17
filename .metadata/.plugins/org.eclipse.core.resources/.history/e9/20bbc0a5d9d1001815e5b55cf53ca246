@@ -1,0 +1,23 @@
+package com.infosys.kafka.consumer;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.batch.item.ItemReader;
+import org.springframework.batch.item.NonTransientResourceException;
+import org.springframework.batch.item.ParseException;
+import org.springframework.batch.item.UnexpectedInputException;
+
+import com.infosys.kafka.producer.RssFeedReader;
+
+public class Receiver implements ItemReader<T> {
+	
+	private static final Logger LOGGER = LoggerFactory.getLogger(RssFeedReader.class);
+	
+
+	@Override
+	public T read() throws Exception, UnexpectedInputException, ParseException, NonTransientResourceException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

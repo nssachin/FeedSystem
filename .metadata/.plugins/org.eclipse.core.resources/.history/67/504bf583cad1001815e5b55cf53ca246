@@ -1,0 +1,7 @@
+package com.infosys.kafka.consumer;
+
+import org.springframework.batch.item.ItemReader;
+
+public class Receiver implements ItemReader<T> {
+
+}
