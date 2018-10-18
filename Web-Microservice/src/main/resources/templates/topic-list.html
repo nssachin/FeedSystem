@@ -18,14 +18,13 @@
 	<div th:replace="header :: header">Header</div>
 	<main role="main" class="container"> <!-- Infosys info Feeds -->
 	<div class="my-3 p-3 bg-white rounded shadow-sm">
-		<h6 class="bg-secondary text-white border-bottom border-gray pb-2 mb-0">&nbsp;Feeds</h6>
+		<h6
+			class="bg-primary text-white border-bottom border-gray pb-2 mb-0" th:text="'&nbsp;' + ${title}">Feeds</h6>
 		<div class="media text-muted pt-3" th:each="feed: ${feedItems}">
 			<p
 				class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-				<a th:href="${feed.link}" th:text="${feed.title}"
-					class="card-link" target="_blank">Explore</a>
-				 <label
-					th:text="${feed.description}">Description</label>
+				<a th:href="${feed.link}" th:text="${feed.title}" class="card-link"
+					target="_blank">Explore</a> <label th:text="${feed.description}">Description</label>
 			</p>
 		</div>
 	</div>

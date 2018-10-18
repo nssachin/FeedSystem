@@ -20,13 +20,13 @@
 	<div class="row">
 		<div class="card-columns">
 			<div class="card" th:each="topic: ${topics}">
-				<div class="card-header bg-dark text-white">
+				<div class="card-header bg-secondary text-white">
 					<label th:text="${topic.name}">Header</label>
 				</div>
 				<div class="card-body">
 					<p class="card-text" th:text=${topic.description}>Some example
 						text. Some example text.</p>
-					<a th:href="${topic.path}" class="btn btn-info btn-sm">Explore</a>
+					<a th:href="@{${topic.path}(type=${topic.type})}" class="btn btn-info btn-sm">Explore</a>
 				</div>
 			</div>
 		</div>

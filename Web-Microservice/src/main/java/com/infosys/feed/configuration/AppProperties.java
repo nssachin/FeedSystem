@@ -26,5 +26,6 @@ public class AppProperties {
 		private String description;
 		private String title;
 		private String path;
+		private String type;
 	}
 }
