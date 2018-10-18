@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1 shrink-to-fit=no" />
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="icon" href="../../favicon.ico" />
+<title>Infosys RSS Feed</title>
+<!-- Bootstrap core CSS -->
+<link href="../static/css/bootstrap.min.css" rel="stylesheet"
+	th:href="@{/css/bootstrap.css}" />
+</head>
+<body class="bg-light">
+	<div th:replace="header :: header">Header</div>
+	<main role="main" class="container"> <!-- Infosys info Feeds -->
+	<div class="row">
+		<div class="card-columns">
+			<div class="card" th:each="topic: ${topics}">
+				<div class="card-header bg-dark text-white">
+					<label th:text="${topic.name}">Header</label>
+				</div>
+				<div class="card-body">
+					<p class="card-text" th:text=${topic.description}>Some example
+						text. Some example text.</p>
+					<a th:href="${topic.path}" class="btn btn-info btn-sm">Explore</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	</main>
+	<!-- /.container -->
+
+	<!-- Bootstrap core JavaScript
+================================================== -->
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="../static/js/bootstrap.js" th:href="@{/js/bootstrap.js}"></script>
+	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+</body>
+</html>

@@ -31,7 +31,7 @@ public class BatchConfiguration {
 		props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
 		props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
 		props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
-		props.put(ConsumerConfig.GROUP_ID_CONFIG, "json");
+		props.put(ConsumerConfig.GROUP_ID_CONFIG, "infosys");
 		props.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
 		// maximum records per poll
 		props.put(ConsumerConfig.MAX_POLL_RECORDS_CONFIG, "10");
