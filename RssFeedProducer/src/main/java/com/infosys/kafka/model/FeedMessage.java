@@ -13,4 +13,5 @@ public class FeedMessage {
     private String link;
     private String guid;
     private Date publishedDate;
+    private String feedType;
 }

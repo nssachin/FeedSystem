@@ -13,8 +13,6 @@ import org.springframework.kafka.support.KafkaHeaders;
 import com.infosys.kafka.model.FeedMessage;
 import com.infosys.kafka.repository.FeedRepository;
 
-
-
 public class Receiver {
 
 	@Autowired
@@ -29,10 +27,7 @@ public class Receiver {
 		// such as topic1, topic1, topic1....
 		String value = topic.split(",")[0];
 		List<FeedMessage> feedList = new ArrayList<FeedMessage>();
-		data.forEach(feed -> {
-			feed.setTopic(value);
-			feedList.add(feed);
-		});
+		data.forEach(feed -> feedList.add(feed));
 		LOGGER.info("received message='{}' to persist to MONGO - {}", feedList.size(), value);
 		save(feedList);
 		LOGGER.info("end of batch receive");

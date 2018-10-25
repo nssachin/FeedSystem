@@ -1,5 +1,0 @@
-package com.infosys.kafka;
-
-public class BatchConfiguration {
-
-}

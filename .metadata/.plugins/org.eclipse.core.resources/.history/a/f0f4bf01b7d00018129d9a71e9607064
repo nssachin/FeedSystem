@@ -1,5 +1,0 @@
-package com.infosys.kafka.producer;
-
-public class LoggingStudentWriter {
-
-}

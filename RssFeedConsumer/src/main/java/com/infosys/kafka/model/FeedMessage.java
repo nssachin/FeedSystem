@@ -7,7 +7,6 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Data
@@ -16,7 +15,7 @@ import lombok.NoArgsConstructor;
 public class FeedMessage {
 	@Id
 	public ObjectId id;
-	public String topic;
+	public String feedType;
 	private String title;
     private String description;
     private String link;

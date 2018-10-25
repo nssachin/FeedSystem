@@ -1,43 +1,6 @@
 spring:
   application:
-    name: feedapp
-  data:
-    mongodb:
-      username: sachin
-      password: nexus
-      database: feedDB
-      host: localhost
-      port: 27017
-      authentication-database: feedDB     
-
+    name: FeedAppMS
+    
 server:
   port: 8080
-  
-
-db:
-  collection:
-    info: infy.feed
-
-app:
-  name: Sachin
-  topics:
-    - title: General Information
-      name: Infosys.com
-      Description: Get the latest updates from Infosys Info RSS
-      path: /info
-      type: infosys.info
-    - title: Blog Posts
-      name: Blog Posts
-      Description: Get the latest updates from Infosys Blogs - Business Technology Blog | IT Blogs
-      path: /blogs
-      type: infosys.blogs
-    - title: Media
-      name: Newsroom
-      Description: Get the latest updates from Infosys Media RSS
-      path: /media
-      type: infosys.media
-    - title: Investors
-      name: Investor
-      Description: Get the latest updates from Information Technology(IT)/ Business Consulting and Outsourcing Services
-      path: /investors
-      type: infosys.investors

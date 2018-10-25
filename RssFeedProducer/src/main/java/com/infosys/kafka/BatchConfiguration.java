@@ -24,7 +24,6 @@ import org.springframework.kafka.support.serializer.JsonSerializer;
 
 import com.infosys.kafka.model.Feed;
 import com.infosys.kafka.model.FeedMessage;
-import com.infosys.kafka.producer.LoggingStudentWriter;
 import com.infosys.kafka.producer.RssFeedProducer;
 import com.infosys.kafka.producer.RssFeedReader;
 
@@ -47,6 +46,12 @@ public class BatchConfiguration {
 		props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
 		props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
 		props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
+		/*props.put(ProducerConfig.PARTITIONER_CLASS_CONFIG, FeedPartitioner.class.getCanonicalName());
+		props.put("partition.0", "infosys.info");
+		props.put("partition.1", "infosys.media");
+		props.put("partition.2", "infosys.blog");
+		props.put("partition.3", "infosys.investors");*/
+		props.put(ProducerConfig.ACKS_CONFIG, "all");
 		return props;
 	}
 

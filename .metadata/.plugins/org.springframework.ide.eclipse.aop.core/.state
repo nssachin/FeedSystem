@@ -2,5 +2,8 @@
 <aop-reference-model>
 <aop-project name="Web-Microservice"/>
 <aop-project name="RssFeedConsumer"/>
+<aop-project name="config-server"/>
+<aop-project name="kafka-config"/>
 <aop-project name="RssFeedProducer"/>
+<aop-project name="feed-discovery-server"/>
 </aop-reference-model>
