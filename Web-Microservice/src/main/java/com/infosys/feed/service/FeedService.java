@@ -1,32 +1,32 @@
 package com.infosys.feed.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import com.infosys.feed.entity.Feed;
-import com.infosys.feed.repository.FeedRepository;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Service
 public class FeedService {
-	private static final Logger LOGGER = LoggerFactory.getLogger(FeedService.class);
+	public String url = "http://FEEDAPI/rss/";
 
 	@Autowired
-	FeedRepository feedRepository;
+	RestTemplate restTemplate;
 
-	@Value("${db.collection.info}")
-	String collectionName;
-
-	public List<Feed> getAllFeedsByTopic(String topic) {
-		LOGGER.info("Find All feeds by {}", topic);
-		return feedRepository.findByTopic(topic);
+	@HystrixCommand(fallbackMethod ="getFeedsByTopicBack" )
+	public List<Feed> getAllFeedsByTopic(String topicType) {
+		log.info("Find All feeds by {}", topicType);
+		return restTemplate.getForObject(url +"feeds/"+ topicType , List.class);
 	}
 
-	public String getCollectionName() {
-		return collectionName;
+	public List<Feed> getFeedsByTopicBack(String topicType){	
+		return new ArrayList<Feed>();
 	}
 }

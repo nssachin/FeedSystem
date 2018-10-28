@@ -1,5 +1,0 @@
-package com.infosys.kafka.consumer.model;
-
-public class FeedMessage {
-
-}

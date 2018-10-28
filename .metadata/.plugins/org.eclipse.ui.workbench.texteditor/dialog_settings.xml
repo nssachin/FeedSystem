@@ -2,12 +2,18 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="management.endpoints.web.exposure.include=*" key="selection"/>
+		<item value="spring-cloud-starter-netflix-eureka-server" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="spring-cloud-starter-netflix-eureka-server"/>
+			<item value="getFeedsByTopicBack"/>
+			<item value="cloud-config"/>
+			<item value="spring-cloud-starter-config"/>
+			<item value="spring.cloud.config.uri=http://localhost:1111"/>
+			<item value="spring.application.name"/>
 			<item value="management.endpoints.web.exposure.include=*"/>
 			<item value="data"/>
 			<item value="8102"/>

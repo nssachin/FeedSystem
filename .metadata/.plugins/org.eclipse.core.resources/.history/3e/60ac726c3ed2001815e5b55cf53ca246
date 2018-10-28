@@ -1,5 +1,0 @@
-package com.infosys.kafka.model;
-
-public abstract class Message {
-
-}

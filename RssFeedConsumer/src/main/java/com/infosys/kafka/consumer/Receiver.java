@@ -11,7 +11,7 @@ import org.springframework.messaging.handler.annotation.Header;
 import org.springframework.kafka.support.KafkaHeaders;
 
 import com.infosys.kafka.model.FeedMessage;
-import com.infosys.kafka.repository.FeedRepository;
+import com.infosys.kafka.service.FeedRepository;
 
 public class Receiver {
 

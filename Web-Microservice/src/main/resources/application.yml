@@ -1,6 +1,0 @@
-spring:
-  application:
-    name: FeedAppMS
-    
-server:
-  port: 8080

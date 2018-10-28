@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aop-reference-model>
-<aop-project name="Web-Microservice"/>
+<aop-project name="Web-Microservice">
+<aspect-definition advice-class-name="com.netflix.hystrix.contrib.javanica.aop.aspectj.HystrixCommandAspect" advice-method-name="methodsAnnotatedWithHystrixCommand(org.aspectj.lang.ProceedingJoinPoint)" advice-type="AROUND" aspect-end-line-number="-1" aspect-name="hystrixCommandAspect" aspect-start-line-number="-1" factory-id="org.springframework.ide.eclipse.aop.core.annotationAspectDefinitionElementFactory" file="/Web-Microservice/src/main/java/com/infosys/feed/WebMicroserviceApplication.java" pointcut-expression="hystrixCommandAnnotationPointcut() || hystrixCollapserAnnotationPointcut()" proxy-target-class="true">
+<aop-reference advice-type="AROUND" bean="1:BeansModel|2:Web-Microservice|3:java:com.infosys.feed.WebMicroserviceApplication|8:feedService:17" bean-file="/Web-Microservice/src/main/java/com/infosys/feed/service/FeedService.java" bean-start-line="17" factory-id="org.springframework.ide.eclipse.aop.core.aopReferenceElementFactory" file="/Web-Microservice/src/main/java/com/infosys/feed/WebMicroserviceApplication.java" source="=Web-Microservice/C:\/Users\/sachinseshadri_jois\/.m2\/repository\/com\/netflix\/hystrix\/hystrix-javanica\/1.5.12\/hystrix-javanica-1.5.12.jar&lt;com.netflix.hystrix.contrib.javanica.aop.aspectj(HystrixCommandAspect.class[HystrixCommandAspect~methodsAnnotatedWithHystrixCommand~Lorg.aspectj.lang.ProceedingJoinPoint;" source-start-line="-1" target="=Web-Microservice/src\/main\/java&lt;com.infosys.feed.service{FeedService.java[FeedService~getAllFeedsByTopic~QString;" target-start-line="24"/>
+</aspect-definition>
+</aop-project>
 <aop-project name="RssFeedConsumer"/>
-<aop-project name="config-server"/>
+<aop-project name="zuul-server"/>
 <aop-project name="kafka-config"/>
+<aop-project name="config-server"/>
 <aop-project name="RssFeedProducer"/>
+<aop-project name="RssFeedApi"/>
 <aop-project name="feed-discovery-server"/>
 </aop-reference-model>
