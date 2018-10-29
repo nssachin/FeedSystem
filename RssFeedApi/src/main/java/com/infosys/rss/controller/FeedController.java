@@ -15,30 +15,30 @@ import com.infosys.rss.service.FeedService;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-@RestController("/rss")
+@RestController
 public class FeedController {
 
 	@Autowired
 	FeedService service;
 
-	@PostMapping("/feeds")
+	@PostMapping("/rss/feeds")
 	public void saveFeed(@RequestBody List<Feed> feeds) {
 		service.saveAll(feeds);
 	}
 
-	@GetMapping("feeds/{name}")
+	@GetMapping("/rss/feeds/{name}")
 	public List<Feed> getFeedsByType(@PathVariable String topicType) {
 		log.info("Get RSS feeds by type");
 		return service.findByTopic(topicType);
 	}
 
-	@GetMapping("/feeds")
+	@GetMapping("/rss/feeds")
 	public List<Feed> getAllFeeds() {
 		log.info("Get all RSS feeds");
 		return service.findAll();
 	}
 
-	@GetMapping("/ping")
+	@GetMapping("/rss/ping")
 	public String ping() {
 		return "pong";
 	}
