@@ -70,7 +70,11 @@ public class RssFeedReader implements ItemReader<Feed> {
 		message.setLink(entry.getLink());
 		message.setTitle(entry.getTitle());
 		message.setPublishedDate(entry.getPublishedDate());
-		message.setGuid(entry.getUri());
+		if (null == entry.getUri() || entry.getUri().isEmpty()) {
+			message.setGuid(entry.getLink());
+		} else {
+			message.setGuid(entry.getUri()) ;	
+		}
 		return message;
 	}
 }

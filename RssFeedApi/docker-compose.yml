@@ -2,10 +2,10 @@ version: "3"
 services:
   mongodb:
     image: mongo:latest
-    command: [--auth]
+    #command: [--auth]
     container_name: springboot-mongo
     volumes:
-      ['D:\\Sachin\\data\\appcode\\Spring-Docker\\spring-docker\\mongo:/data/db']
+      ['d:data\db:/data/db']
     ports:
       - 27017:27017
     networks:

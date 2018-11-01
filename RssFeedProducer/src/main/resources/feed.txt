@@ -1,1 +1,4 @@
 infosys.info=https://www.infosys.com/index.xml
+infosys.blogs=https://www.infosys.com/blog.xml
+infosys.media=https://www.infosys.com/media.xml
+infosys.investors=https://www.infosys.com/investors.xml

@@ -3,16 +3,27 @@ services:
   kafkaserver:
     image: "spotify/kafka:latest"
     container_name: kafka
-    hostname: kafkaserver
+    hostname: 192.168.99.100
     networks:
-      - kafkanet
+      - webnet
     ports:
       - 2181:2181
       - 9092:9092
     environment:
       ADVERTISED_HOST: kafkaserver
       ADVERTISED_PORT: 9092
-
+  kafkaconfig:
+    build: .
+    ports:
+      - "8081:8081"
+    container_name: kafkaconfig
+    networks:
+      - webnet
+    depends_on:
+      - kafkaserver
+    links:
+      - kafkaserver
+    
 networks:
-  kafkanet:
+  webnet:
     driver: bridge

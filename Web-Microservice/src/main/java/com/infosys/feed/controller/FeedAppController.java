@@ -4,12 +4,15 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
+import org.springframework.messaging.handler.annotation.MessageMapping;
+import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.infosys.feed.configuration.AppProperties;
+import com.infosys.feed.entity.Feed;
 import com.infosys.feed.service.FeedService;
 
 @Controller
@@ -64,5 +67,12 @@ public class FeedAppController {
 		model.addAttribute("title", "Blogs Feed");
 		model.addAttribute("feedItems", service.getAllFeedsByTopic(type));
 		return TOPIC_LIST;
+	}
+
+	@MessageMapping("/user")
+	@SendTo("/topic/user")
+	public String getUser(Feed user) {
+		LOGGER.info("Calling getUser method");
+		return "Hi " + user.getTitle();
 	}
 }

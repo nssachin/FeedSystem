@@ -26,10 +26,10 @@ public class FeedController {
 		service.saveAll(feeds);
 	}
 
-	@GetMapping("/rss/feeds/{name}")
-	public List<Feed> getFeedsByType(@PathVariable String topicType) {
+	@GetMapping("/rss/feeds/{type}")
+	public List<Feed> getFeedsByType(@PathVariable String type) {
 		log.info("Get RSS feeds by type");
-		return service.findByTopic(topicType);
+		return service.findByFeedType(type);
 	}
 
 	@GetMapping("/rss/feeds")
@@ -40,6 +40,6 @@ public class FeedController {
 
 	@GetMapping("/rss/ping")
 	public String ping() {
-		return "pong";
+		return "pong!";
 	}
 }

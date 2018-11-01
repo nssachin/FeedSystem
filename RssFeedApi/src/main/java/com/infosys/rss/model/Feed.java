@@ -2,7 +2,6 @@ package com.infosys.rss.model;
 
 import java.util.Date;
 
-import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -11,14 +10,13 @@ import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-@Document (collection = "feedDB")
+@Document (collection = "infy.rss")
 public class Feed {
-	@Id
-	public ObjectId id;
 	private String title;
 	private String description;
 	private String link;
+	@Id
 	private String guid;
 	private Date publishedDate;
-	private String topic;
+	private String feedType;
 }

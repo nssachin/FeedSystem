@@ -25,9 +25,9 @@ public class FeedService {
 		return feedRepository.findAll();
 	}
 
-	public List<Feed> findByTopic(String topic) {
+	public List<Feed> findByFeedType(String topic) {
 		log.info("Find All feeds by {}", topic);
-		return feedRepository.findByTopic(topic);
+		return feedRepository.findByFeedType(topic);
 	}
 
 	public List<Feed> saveAll(List<Feed> entities) {

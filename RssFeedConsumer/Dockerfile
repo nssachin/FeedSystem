@@ -1,4 +1,4 @@
 FROM openjdk:8-alpine
-ADD target/discovery-server.jar discovery-server.jar
-EXPOSE 8082
-ENTRYPOINT ["java","-jar", "discovery-server.jar"]
+ADD target/ConsumerService.jar ConsumerService.jar
+EXPOSE 8102
+ENTRYPOINT ["java","-jar", "ConsumerService.jar"]
